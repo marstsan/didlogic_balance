@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Didlogic Blance</title>
+    <style>
+        * { font-family: Microsoft JhengHei; }
+        body {background-color: #e0ffe8;}
+        }
+
+        #balance_chart_container {display: flex; align-items: center; justify-content: center;}
+        .balance_chart {width: 90%; margin: 0 auto; /* 水平置中 */}
+    </style>
+    <!-- 引入 Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h3>Didlogic Balance</h3>
+        <form action="/" method="post">
+            <!-- Label -->
+            <br>
+            <label style="padding-left: 50px;">Current balance: <b id="current_balance">{{current_balance}}</b></label>
+            <script>
+                var currentBalance = document.getElementById('current_balance').innerText;
+                if (parseInt(currentBalance) <= 500) {
+                    document.getElementById('current_balance').style.color = 'red';
+                } else {
+                    document.getElementById('current_balance').style.color = 'blue';
+                }
+            </script>
+            <br>
+            <label for="inputValue" style="padding-left: 50px;">Enter the number of days you want to query:</label>
+
+            <!-- Input field with default value 14 -->
+            <input style="width: 60px;" type="number" id="number" name="number" value="{{number}}" min="1" step="1">
+
+            <!-- Confirm button -->
+            <button onclick="confirmInput()">Submit</button>
+        </form>
+    <br>
+    <!-- 將 Plotly 圖嵌入到這裡 -->
+    <div id="balance_chart_container">
+        <div id="balance_chart" class="balance_chart">{{ plot_html | safe }}</div>
+
+    </div>
+</body>
+</html>

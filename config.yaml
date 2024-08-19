@@ -1,0 +1,11 @@
+didlogic:
+  email: billing%40cinnox.com
+  password: hZnV!qKyuchy3VA
+
+notification:
+  service: https://internal.cinnox.com
+  account: noc@m800.com
+  password: '!QAZ2wsx3edc'
+  room_id:
+#    - 63ec1111-4823-4ce6-9a90-ff01bc1028a7@prod-hk-02@1  # jack_test_space
+    - 4188484f-c6af-4970-b8e8-c83c1026387d@prod-hk-02@1   # didlogic_balance
